@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class MagicRestController {
 
     @Value("${wizard.name}")
-    private  String wizardName;
+    private String wizardName;
 
     @Value("${wizard.house}")
     private String wizardHouse;
@@ -16,11 +16,27 @@ public class MagicRestController {
     @Value("${wizard.spell}")
     private String wizardSpell;
 
+    //expose endpoint /team
     @GetMapping("/team")
-    public  String getTeamInfo() {
+    public String getTeamInfo() {
         return "Wizard name: " + wizardName +
                 ", Wizard house: " + wizardHouse +
                 ", Wizard spell: " + wizardSpell;
+    }
+
+    @GetMapping("/name")
+    public String getWizardName() {
+        return "Wizard name: " + wizardName;
+    }
+
+    @GetMapping("/house")
+    public  String getWizardHouse() {
+        return "Wizard house: " + wizardHouse;
+    }
+
+    @GetMapping("/spell")
+    public  String getWizardSpell() {
+        return "Wizard spell: " + wizardSpell;
     }
 }
 
